@@ -1,0 +1,39 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Live unauthenticated POST of {"jsonrpc":"2.0","id":1,"method":"tools/list"} to every plausible
+  StashAway MCP endpoint, plus a search of the provider's public surface for a published server.
+status: none
+note: >-
+  StashAway ships no MCP server, hosted or local, and there is no OpenAPI in this repo from which a
+  candidate tool list could be derived — so none is derived and no endpoint is invented. No
+  `MCPServer` pointer is wired into apis.yml: this file records a verified absence, not a surface.
+  Worth noting alongside it: StashAway HAS taken a deliberate agent-facing step, publishing an
+  llms.txt on four regional hosts and advertising it in robots.txt. That is a read-only agent
+  surface — an agent can learn what StashAway sells, but cannot act.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: probed
+tools: []
+probes:
+- url: https://mcp.stashaway.com/mcp
+  status: 0
+  detail: host does not resolve
+- url: https://mcp.stashaway.sg/mcp
+  status: 0
+  detail: host does not resolve
+- url: https://www.stashaway.sg/mcp
+  status: 403
+  detail: website host rejects POST; no MCP handler
+- url: https://api.stashaway.sg/mcp
+  status: 426
+  detail: version-gate middleware, same response as every other path on this host
+- url: https://www.stashaway.sg/.well-known/mcp.json
+  status: 403
+registry_search:
+  npm: no @stashaway or stashaway-mcp package found
+  docs: no MCP mention on www.stashaway.sg/llms.txt or the help centre

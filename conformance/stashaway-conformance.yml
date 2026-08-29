@@ -1,0 +1,80 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://www.stashaway.sg/security, https://www.stashaway.sg/llms.txt and the MAS Financial
+  Institutions Directory entry for the licensed entity.
+note: >-
+  StashAway is a regulated capital-markets firm, not an API provider. Its published conformance is
+  therefore regulatory and custodial, not technical: there is no OpenAPI, no OAuth surface, no
+  RFC 9457 error format and no domain API standard to assert against, because there is no public
+  contract. Every technical row below is recorded as `conforms: false` with the evidence that it was
+  looked for and not found — an honest absence, not a penalty. No domain standard is asserted:
+  StashAway publishes nothing in the FDX / ISO 20022 / Open Banking family, and inventing one to
+  fill the slot is out of bounds.
+regulatory:
+- regime: MAS Capital Markets Services Licence
+  jurisdiction: Singapore
+  conforms: true
+  identifier: CMS100604
+  licensed_entity: Asia Wealth Platform Pte Ltd (UEN 201624878Z)
+  issued: '2017-05'
+  evidence:
+    url: https://www.stashaway.sg/security
+    status: 200
+    detail: >-
+      Licence number CMS100604 appears five times in the served HTML, linked to the MAS Financial
+      Institutions Directory entry at
+      https://eservices.mas.gov.sg/fid/institution/detail/201134-ASIA-WEALTH-PLATFORM-PTE-LTD
+  obligations_stated: capital, compliance, audit and reporting requirements from MAS
+- regime: Client asset segregation
+  jurisdiction: Singapore
+  conforms: true
+  evidence:
+    url: https://www.stashaway.sg/security
+    status: 200
+    detail: >-
+      Client monies held in a DBS trust account; securities custodied with Saxo Capital Markets;
+      StashAway Simple funds held by HSBC Hong Kong; Lion Global named for Simple. All stated as
+      segregated from StashAway's own operations.
+standards:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No OAuth surface published. /.well-known/oauth-authorization-server returns 404 on every
+    website host and 426 on api.stashaway.sg.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on www.stashaway.sg.
+- id: rfc9457
+  conforms: false
+  evidence: No public OpenAPI or error reference published, so no problem+json format to assert.
+- id: rfc9116
+  conforms: false
+  evidence: >-
+    No /.well-known/security.txt on any host (404 on sg, my, ae, hk), despite a live vulnerability
+    disclosure programme at https://vdp.stashaway.com/.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found at any probed location on api.stashaway.sg or the website
+    hosts. See x-coverage in apis.yml.
+- id: llmstxt
+  conforms: true
+  evidence: >-
+    /llms.txt served with HTTP 200 on www.stashaway.sg, www.stashaway.my, www.stashaway.ae and
+    www.stashaway.hk, and advertised in robots.txt alongside /llms-full.txt. The document carries a
+    structured product catalogue, a fee summary, regulatory identifiers and an explicit
+    "AI Usage Terms" section.
+domain_standard:
+  asserted: false
+  reason: >-
+    StashAway's market (retail digital wealth management in Singapore/SEA) has open-banking and
+    financial-messaging standards available — FDX, ISO 20022, SGFinDex — but StashAway declares
+    none of them in any published contract, and it publishes no contract in which one could be
+    declared. Reward-only check: recorded as not asserted rather than invented.
+certifications:
+  published: []
+  note: >-
+    No SOC 2, ISO 27001, PCI DSS or equivalent certification is named anywhere on the public
+    security page. The controls it does state are AWS hosting with 24/7 monitoring, intrusion
+    detection, and regular whitebox and blackbox testing.

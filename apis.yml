@@ -1,17 +1,36 @@
 aid: stashaway
 name: StashAway
-description: 'StashAway is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  StashAway is a digital wealth manager and robo-advisor headquartered in Singapore, operating as
+  Asia Wealth Platform Pte Ltd under Monetary Authority of Singapore Capital Markets Services licence
+  CMS100604 (issued May 2017). Founded in 2016, it offers goal-based, globally diversified ETF
+  portfolios driven by its proprietary ERAA (Economic Regime-based Asset Allocation) framework, a
+  self-directed ETF Explorer covering 80+ asset classes, Flexible, Thematic, Income, Responsible and
+  Singapore-focused portfolios, StashAway Simple and Simple Plus cash management, and StashAway
+  Reserve private-market access for accredited investors. It runs consumer web and mobile apps across
+  Singapore, Malaysia, Hong Kong, Thailand and the UAE/MENA, with client assets held in segregated
+  accounts at DBS, HSBC, Saxo Capital Markets and Lion Global. StashAway is an end-user wealth
+  product: it publishes no public developer API, SDK or developer portal, though it does publish an
+  llms.txt for AI agents and runs a public vulnerability disclosure programme.
 url: https://raw.githubusercontent.com/api-evangelist/stashaway/refs/heads/main/apis.yml
+image: https://cms-assets.stashaway.com/202402_Website_Homepage_SG_b53f4d30db.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-29'
 modified: '2026-08-29'
 tags:
 - Company
+- Wealth Management
+- Investing
+- Robo-Advisor
+- Financial Services
+- Asset Management
+- ETFs
+- Cash Management
+- Fintech
+- Singapore
+- Private Markets
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +39,62 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.hiive.com/securities/stashaway-stock
+  url: https://www.stashaway.sg/
+- type: Support
+  url: https://www.stashaway.sg/help-center
+- type: Blog
+  url: https://www.stashaway.sg/resources
+- type: Pricing
+  url: https://www.stashaway.sg/pricing
+- type: SignUp
+  url: https://app.stashaway.sg/register
+- type: Login
+  url: https://app.stashaway.sg/
+- type: TermsOfService
+  url: https://www.stashaway.sg/legal
+- type: PrivacyPolicy
+  url: https://www.stashaway.sg/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/stashaway-engineering
+- type: LLMsTxt
+  url: llms/stashaway-llms.txt
+- type: Packages
+  url: packages/stashaway-packages.yml
+- type: Conformance
+  url: conformance/stashaway-conformance.yml
+- type: Compliance
+  url: conformance/stashaway-conformance.yml
+- type: Security
+  url: security/stashaway-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/stashaway-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/stashaway-domain-security.yml
+- type: Plans
+  url: plans/stashaway-plans-pricing.yml
+x-enrichment:
+  date: '2026-08-29'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    StashAway's only live API host, api.stashaway.sg, is the private mobile-app backend — its root
+    returns a 68-byte company teaser and every other path, including /openapi.json, /graphql,
+    /api-docs and every /.well-known/ path, returns 426 Upgrade Required from a client-version gate
+    — and no developer.stashaway.com or developers.stashaway.com host exists at all, so there is no
+    public API, SDK, webhook or developer portal to profile.
+  evidence:
+  - url: https://api.stashaway.sg/openapi.json
+    status: 426
+  - url: https://api.stashaway.sg/
+    status: 200
+  - url: https://developers.stashaway.com/
+    status: 0
+  - url: https://www.stashaway.sg/.well-known/api-catalog
+    status: 404
+  - url: https://www.stashaway.sg/llms.txt
+    status: 200
+  checked: '2026-08-29'

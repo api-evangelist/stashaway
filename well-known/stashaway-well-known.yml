@@ -1,0 +1,70 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Live unauthenticated GET of each /.well-known/ path on every StashAway regional website host and
+  on the mobile-app API host. Every path was probed on 2026-08-29; nothing was found. Recorded as an
+  honest absence — no WellKnown or SecurityTxt pointer is emitted, because StashAway serves none of
+  these documents.
+note: >-
+  StashAway serves no /.well-known/ documents on any host. The four regional website hosts answer 404
+  for every path. api.stashaway.sg (the private mobile-app backend) answers 426 Upgrade Required for
+  every path including /.well-known/*, which is a version-gate middleware response rather than a
+  document — it is recorded as a probe result, not as a served document. Note that StashAway DOES run
+  a vulnerability disclosure programme (https://vdp.stashaway.com/, linked from
+  https://www.stashaway.sg/security) but publishes no RFC 9116 security.txt pointing at it, so the
+  programme is undiscoverable by machine from the well-known path.
+hosts:
+- host: www.stashaway.sg
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.stashaway.my
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: www.stashaway.ae
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: www.stashaway.hk
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: api.stashaway.sg
+  documents:
+  - path: /.well-known/security.txt
+    status: 426
+  - path: /.well-known/openid-configuration
+    status: 426
+  - path: /.well-known/oauth-authorization-server
+    status: 426
+  - path: /.well-known/api-catalog
+    status: 426
+  - path: /.well-known/agent-card.json
+    status: 426
+  - path: /.well-known/agent.json
+    status: 426

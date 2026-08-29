@@ -1,0 +1,65 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.stashaway.sg/pricing
+note: >-
+  StashAway publishes no API plans, because it publishes no API. `plan_count: 0` is the finding.
+  What it does publish, in full and without a sales gate, is a consumer fee schedule for its wealth
+  products — captured below as `product_pricing` so the record is useful, and deliberately kept out
+  of `plans[]` so it is never counted as API plan tiers. Figures are Singapore-market (SGD),
+  charged monthly, and stated exclusive of GST. Regional sites (my/ae/hk/th) publish their own
+  local schedules which were not captured here.
+plan_count: 0
+plans: []
+product_pricing:
+  currency: SGD
+  gst: excluded
+  billing_period: monthly (fee quoted per annum)
+  investment_portfolios:
+    model: tiered on total investment amount
+    tiers:
+    - band: first $25,000
+      annual_fee_percent: 0.8
+    - band: $25,001 - $50,000
+      annual_fee_percent: 0.7
+    - band: $50,001 - $100,000
+      annual_fee_percent: 0.6
+    - band: $100,001 - $250,000
+      annual_fee_percent: 0.5
+    - band: $250,001 - $500,000
+      annual_fee_percent: 0.4
+    - band: $500,001 - $1,000,000
+      annual_fee_percent: 0.3
+    - band: above $1,000,000
+      annual_fee_percent: 0.2
+  products:
+  - name: Flexible Portfolio (single ETF)
+    annual_fee_percent: 0.3
+  - name: StashAway Simple
+    annual_fee_percent: 0.15
+    note: net fee
+  - name: StashAway Simple Plus
+    annual_fee_percent: 0.2
+    note: net fee
+  - name: ETF Explorer
+    per_transaction: USD 1.00
+    additional: 0.09% operation fee for SGX-listed ETFs
+    management_fee: none
+  - name: StashAway Reserve
+    annual_fee_percent: null
+    note: >-
+      Accredited-investor tier (minimum SGD 250,000 to qualify; private-market allocations from
+      USD 50,000). No fee rate is stated on the public pricing page.
+  excluded_from_fee:
+  - account setup
+  - exit
+  - subscription
+  - switching
+  - rebalancing
+  - transfers between portfolios and withdrawals
+  third_party_costs:
+  - item: ETF expense ratios
+    approx_annual_percent: 0.2
+    note: approximately 0.4% p.a. for the Income Portfolio
+evidence:
+- url: https://www.stashaway.sg/pricing
+  status: 200

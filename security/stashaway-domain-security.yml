@@ -1,0 +1,93 @@
+generated: '2026-08-29'
+method: probed
+source: live DNS/TLS/HTTP probes of every StashAway regional website host, the mobile-app
+  API host (api.stashaway.sg) and the vulnerability-disclosure host (vdp.stashaway.com)
+hosts:
+- host: www.stashaway.sg
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 15 07:31:35 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: www.stashaway.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  2 23:59:59 2026 GMT
+  hsts: null
+- host: www.stashaway.my
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 11 17:24:39 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: www.stashaway.ae
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 10 07:56:12 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: www.stashaway.hk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 06:33:36 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: www.stashaway.co.th
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  7 18:21:22 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: app.stashaway.sg
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  4 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: api.stashaway.sg
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  7 23:59:59 2026 GMT
+  hsts: false
+- host: vdp.stashaway.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  9 01:30:01 2026 GMT
+  hsts: null
+domains:
+- domain: stashaway.sg
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: stashaway.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: stashaway.my
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: stashaway.ae
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: stashaway.hk
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: stashaway.co.th
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

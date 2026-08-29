@@ -1,0 +1,78 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  registry.npmjs.org metadata endpoints plus the api.github.com listing for the
+  https://github.com/stashaway-engineering organisation.
+note: >-
+  StashAway publishes NO client SDK, because it publishes no public API. Every package below is an
+  open-source engineering utility released by the StashAway platform team from its own GitHub
+  organisation — a MyInfo (Singapore national digital identity) client and an HTTP record/replay test
+  server — not a client library for a StashAway API. For that reason no `SDKs` pointer is emitted for
+  this artifact; the sdk_count check would be credited for libraries that do not wrap a StashAway
+  contract. The two `sa-`prefixed entries are the currently-maintained republished forks of the two
+  originals; the unprefixed originals were last published in 2022 and are effectively frozen.
+package_count: 4
+sdk_count: 0
+packages:
+- name: sa-node-my-info-sg
+  registry: npm
+  url: https://www.npmjs.com/package/sa-node-my-info-sg
+  version: 2.0.1
+  published: '2024-07-22'
+  license: MIT
+  official: true
+  source_code: https://github.com/stashaway-engineering/node-my-info-sg
+  language: JavaScript
+  kind: utility
+  description: >-
+    Wrapper around the Singapore MyInfo V3 API for Node.js, packaging the MyInfo security
+    handshake (signing, decryption) behind a simple client. Wraps a Singapore GovTech API, not a
+    StashAway API.
+- name: sa-node-playback-server
+  registry: npm
+  url: https://www.npmjs.com/package/sa-node-playback-server
+  version: 2.0.3
+  published: '2024-04-25'
+  license: MIT
+  official: true
+  source_code: https://github.com/stashaway-engineering/node-playback-server
+  language: JavaScript
+  kind: testing-tool
+  description: HTTP record-and-replay server used to stub upstream services in tests.
+- name: node-my-info-sg
+  registry: npm
+  url: https://www.npmjs.com/package/node-my-info-sg
+  version: 2.0.0
+  published: '2022-03-29'
+  license: MIT
+  official: true
+  source_code: https://github.com/stashaway-engineering/node-my-info-sg
+  language: JavaScript
+  kind: utility
+  status: superseded
+  description: >-
+    Original publication of the Singapore MyInfo V3 client. Superseded by sa-node-my-info-sg;
+    last release 2022-03-29, more than four years before this probe.
+- name: node-playback-server
+  registry: npm
+  url: https://www.npmjs.com/package/node-playback-server
+  version: 2.0.0
+  published: '2022-01-03'
+  license: MIT
+  official: true
+  source_code: https://github.com/stashaway-engineering/node-playback-server
+  language: JavaScript
+  kind: testing-tool
+  status: superseded
+  description: >-
+    Original publication of the record-and-replay test server. Superseded by
+    sa-node-playback-server; last release 2022-01-03.
+registries_checked:
+- registry: npm
+  result: 4 first-party packages found (search text "stashaway" plus the GitHub org repo list)
+- registry: PyPI
+  result: no package named stashaway (https://pypi.org/pypi/stashaway/json returned 404)
+- registry: Maven Central
+  result: not searched for a JVM client — no public API exists for one to wrap
+- registry: RubyGems
+  result: not searched for a Ruby client — no public API exists for one to wrap

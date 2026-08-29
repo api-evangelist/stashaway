@@ -1,0 +1,29 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Live unauthenticated probes of api.stashaway.sg and a search of every public StashAway surface for
+  a documented rate-limit policy.
+note: >-
+  `limit_count: 0` is the finding, and it is not a gap in this pass. StashAway publishes no API, so
+  there is no rate-limit policy to document and no runtime rate-limit signal to observe. The one
+  live API host, api.stashaway.sg, serves the private mobile-app backend: its root returns a
+  68-byte JSON teaser and every other path returns 426 Upgrade Required, so no rate-limit response
+  headers were ever emitted to an anonymous caller. Nothing was retried and no gate was bypassed.
+limit_count: 0
+limits: []
+response_headers:
+  observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any anonymous response from
+    api.stashaway.sg.
+exhaustion_status_code: null
+evidence:
+- url: https://api.stashaway.sg/
+  status: 200
+  detail: 'Body: {"company":"StashAway","careers":"https://www.stashaway.sg/careers"} — no rate-limit headers.'
+- url: https://api.stashaway.sg/openapi.json
+  status: 426
+  detail: >-
+    426 Upgrade Required with a 128-byte JSON body; the same status is returned for /docs,
+    /api-docs, /swagger.json, /graphql, /redoc and every /.well-known/ path. Security headers
+    (CSP, HSTS max-age=15552000, COEP, COOP, X-Frame-Options) are present, rate-limit headers are not.
