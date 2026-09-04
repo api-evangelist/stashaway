@@ -13,6 +13,19 @@ description: >-
   product: it publishes no public developer API, SDK or developer portal, though it does publish an
   llms.txt for AI agents and runs a public vulnerability disclosure programme.
 url: https://raw.githubusercontent.com/api-evangelist/stashaway/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - rate-limits
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://cms-assets.stashaway.com/202402_Website_Homepage_SG_b53f4d30db.jpg
 x-type: company
 x-source: harvest:secondary-market
